@@ -19,7 +19,6 @@ Then run this command
 ```
 php artisan migrate
 ```
-Or you can use the DB that I provide
 
 Then run this command
 ```
