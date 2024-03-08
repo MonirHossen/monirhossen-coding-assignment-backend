@@ -6,9 +6,6 @@ This is a Product and Category Add List Project. In this project, I use the Last
 
 ## Project Setup
 First, you need to clone this repository
-```
-
-```
 composer update 
 ```
 Then make a .env 
