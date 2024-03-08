@@ -13,12 +13,14 @@ class CategoryRepository
     {
         $this->model = $model;
     }
-
+    
+    // Retrieve all categories.
     public function all()
     {
         return $this->model->all();
     }
 
+    // create new category
     public function create($data)
     {
         return $this->model->create([
@@ -27,7 +29,7 @@ class CategoryRepository
             'image' => $this->imageUpload($data['image']), // Save image path in the database
         ]);
     }
-
+    // update category by id
     public function update($id, $data)
     {
         $category = $this->find($id);
@@ -50,7 +52,7 @@ class CategoryRepository
 
         return $category;
     }
-
+    // delete category by id
     public function delete($id)
     {
         $category = $this->find($id);
@@ -59,17 +61,17 @@ class CategoryRepository
         }
         $category->delete();
     }
-
+    // find cateogry by id
     public function find($id)
     {
         return $this->model->findOrFail($id);
     }
-
+    // filter category by parent id
     public function findByParentId($parentId)
     {
         return $this->model->where('parent_id', $parentId)->get();
     }
-
+    // for image upload
     private function imageUpload($imageData)
     {
         // Decode base64 image and save it to storage

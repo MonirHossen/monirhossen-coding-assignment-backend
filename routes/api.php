@@ -27,14 +27,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:sanctum')->prefix('category')->group(function () {
+Route::prefix('category')->group(function () {
   Route::get('all', [CategoryController::class, 'index']);
   Route::post('create', [CategoryController::class, 'store']);
   Route::post('update/{id}', [CategoryController::class, 'update']);
   Route::get('show/{id}', [CategoryController::class, 'find']);
 });
 
-Route::middleware('auth:sanctum')->prefix('product')->group(function () {
+Route::prefix('product')->group(function () {
   Route::get('all', [ProductController::class, 'index']);
   Route::post('create', [ProductController::class, 'store']);
   Route::post('update/{id}', [ProductController::class, 'update']);
